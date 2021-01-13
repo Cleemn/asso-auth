@@ -1,6 +1,6 @@
-<h1>Sign Up</h1>
+<h1>Créer un compte</h1>
 
-<%= form_for @user do |f| %>
+<%= form_for @user, :html => {:class => 'container'} do |f| %>
   <% if @user.errors.any? %>
     <div class="error_messages">
       <h2>Form is invalid</h2>
@@ -11,34 +11,27 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
+  <p id="notice"><%= flash[:notice] %></p>
+  <div class="field mt-4">
+    <%= f.text_field :first_name, placeholder: "Prénom" %>
   </div>
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
+  <div class="field mt-4">
+    <%= f.text_field :last_name, placeholder: "Nom de famille" %>
   </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+  <div class="field mt-4">
+    <%= f.text_field :email, placeholder: "Email" %>
   </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
+  <div class="field mt-4">
+    <%= f.password_field :password, placeholder: "Mot de passe" %>
   </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
+  <div class="field mt-4">
+    <%= f.password_field :password_confirmation, placeholder: "Confirmer le mot de passe" %>
   </div>
-  <div class="field">
-    <%= f.label :rna %><br />
-    <%= f.text_field :rna %>
+  <div class="field mt-4">
+    <%= f.text_field :rna, placeholder: "Numéro RNA" %>
   </div>
-    <div class="field">
-    <%= f.label :asso_name %><br />
-    <%= f.text_field :asso_name %>
+    <div class="field mt-4">
+    <%= f.text_field :asso_name, placeholder: "Nom de l'association" %>
   </div>
-  <div class="actions"><%= f.submit "Sign Up" %></div>
+  <div class="actions mt-4"><%= f.submit "Créer un compte", class: "btn btn-primary" %></div>
 <% end %>

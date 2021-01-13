@@ -1,11 +1,25 @@
-<% if current_user %>
-  Bienvenue <%= current_user.first_name %> <%= current_user.last_name %>.
-  <%= current_user.rna %>
-  <%= link_to "Log Out", logout_path %>
-<% else %>
-  <%= link_to "Sign Up", signup_path %> or 
-  <%= link_to "Log In", login_path %>
-<% end %>
-<p id="notice"><%= notice %></p>
-<h1>Example</h1>
-<p>Lorem ipsum …</p>
+<div>
+  <% if current_user %>
+    <nav class="m-3 d-flex align-center justify-content-between">
+        <%= link_to "Log Out", logout_path %>
+    </nav>
+    <div class="container">
+      <h3>Bienvenue <%= current_user.first_name %> <%= current_user.last_name %></h3>
+      <p>Votre compte a été créé le <%= current_user.created_at.strftime('%F') %></p>
+      <div class="card p-4">
+        <h5>Les détails de mon association</h5>
+        <p>Nom de l'association : <%= @my_association.name %></p>
+        <p>Id de l'association : <%= @my_association.official_id %></p>
+        <p>RNA : <%= @my_association.rna_id %></p>
+      </div>
+    </div>
+  <% else %>
+    <nav class="m-3 d-flex align-center justify-content-between">
+      <%= link_to "Créer un compte", signup_path %>
+      <%= link_to "Se connecter", login_path %>
+    </nav>
+    <div class="container">
+      <p>Vous n'êtes pas encore connecté</p>
+    </div>
+  <% end %>
+</div>

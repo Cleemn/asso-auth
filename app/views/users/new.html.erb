@@ -1,6 +1,3 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
-
 <h1>Sign Up</h1>
 
 <%= form_for @user do |f| %>
@@ -16,6 +13,14 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </div>
@@ -30,6 +35,10 @@
   <div class="field">
     <%= f.label :rna %><br />
     <%= f.text_field :rna %>
+  </div>
+    <div class="field">
+    <%= f.label :asso_name %><br />
+    <%= f.text_field :asso_name %>
   </div>
   <div class="actions"><%= f.submit "Sign Up" %></div>
 <% end %>

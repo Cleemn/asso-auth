@@ -1,5 +1,6 @@
 <% if current_user %>
-  Logged in as <%= current_user.email %>.
+  Bienvenue <%= current_user.first_name %> <%= current_user.last_name %>.
+  <%= current_user.rna %>
   <%= link_to "Log Out", logout_path %>
 <% else %>
   <%= link_to "Sign Up", signup_path %> or 

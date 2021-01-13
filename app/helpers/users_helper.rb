@@ -3,7 +3,7 @@ module UsersHelper
   require 'net/http'
 
   def get_rna_asso_by_rna(rna, new_attempt = false)
-    uri = URI("#{ENV['ASSOS_GOUV_API_URL']}/#{rna.gsub(/\s/, '')}")
+    uri = URI("https://entreprise.data.gouv.fr/api/rna/v1/id/#{rna.gsub(/\s/, '')}")
 
     response = Net::HTTP.get(uri).force_encoding(Encoding::UTF_8)
     unless response.blank?
